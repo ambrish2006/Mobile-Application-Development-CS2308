@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body{display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;}
+  .box{width:300px;padding:20px;border:2px solid #000;border-radius:10px;text-align:center}
+  input{width:90%;padding:10px;margin:8px 0;font-size:18px}
+  .ops{display:flex;justify-content:space-between;margin-top:10px}
+  button{width:22%;padding:10px;font-size:18px;cursor:pointer}
+  h3{margin-top:15px}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Simple Calculator</h2>
+  <input id="a" type="number" placeholder="Enter number 1">
+  <input id="b" type="number" placeholder="Enter number 2">
+
+  <div class="ops">
+    <button onclick="cal('+')">+</button>
+    <button onclick="cal('-')">-</button>
+    <button onclick="cal('*')">*</button>
+    <button onclick="cal('/')">/</button>
+  </div>
+
+  <h3 id="res">Result: </h3>
+</div>
+
+<script>
+function cal(op){
+  let x = Number(a.value), y = Number(b.value);
+  res.innerHTML = "Result: " + (op=='+'?x+y:op=='-'?x-y:op=='*'?x*y:x/y);
+}
+</script>
+
+</body>
+</html>

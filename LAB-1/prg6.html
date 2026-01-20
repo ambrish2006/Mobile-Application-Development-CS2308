@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Metro Discount</title>
+<style>
+  body{font-family:Arial;background:#f2f2f2;display:flex;justify-content:center;align-items:center;height:100vh}
+  .c{background:#fff;width:300px;padding:18px;border-radius:10px;box-shadow:0 4px 10px #0002}
+  input,button{width:100%;padding:10px;margin:6px 0;border:1px solid #ccc;border-radius:6px}
+  button{background:#27ae60;color:#fff;border:none;font-weight:bold;cursor:pointer}
+  .g{display:flex;gap:10px;margin:8px 0}
+  .g label{flex:1;border:1px solid #ccc;padding:8px;border-radius:6px;text-align:center;cursor:pointer}
+  h3{margin-top:10px}
+</style>
+</head>
+<body>
+
+<div class="c">
+  <h2>🚇 Metro Ticket</h2>
+
+  <input id="age" type="number" placeholder="Age">
+  <input id="price" type="number" placeholder="Ticket Price" value="50">
+
+  <div class="g">
+    <label><input type="radio" name="gen" value="male"> Male</label>
+    <label><input type="radio" name="gen" value="female"> Female</label>
+    <label><input type="radio" name="gen" value="other"> Other</label>
+  </div>
+
+  <button onclick="cal()">Get Price</button>
+
+  <h3 id="disc">Discount: 0%</h3>
+  <h3 id="final">Final: ₹0</h3>
+</div>
+
+<script>
+function cal(){
+  let a=+age.value, p=+price.value;
+  let g=document.querySelector("input[name='gen']:checked")?.value;
+  if(a<0||p<=0||!g) return final.innerHTML="Final: Enter valid details!";
+
+  let d = (a<5)?100:(a<=8)?50:0;
+  if(g=="female") d=Math.max(d,50);
+  if(a>65) d=Math.max(d,70);
+
+  disc.innerHTML="Discount: "+d+"%";
+  final.innerHTML="Final: ₹"+(p-(p*d/100)).toFixed(2);
+}
+</script>
+
+</body>
+</html>

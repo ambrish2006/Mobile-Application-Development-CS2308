@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shop</title>
+<style>
+  body{font-family:Arial;background:#f2f2f2;display:flex;justify-content:center;align-items:center;height:100vh}
+  .c{background:#fff;width:260px;padding:15px;border-radius:10px;text-align:center;box-shadow:0 4px 8px #0002}
+  button{width:100%;padding:10px;margin:5px 0;border:0;border-radius:6px;cursor:pointer}
+  .bag{background:#ff3f6c;color:#fff}
+  .wish{background:#fff;border:1px solid #ccc}
+  .q{display:flex;justify-content:center;align-items:center;gap:15px;margin-top:10px}
+  .q button{width:35px;height:35px;border-radius:50%;background:#333;color:#fff}
+</style>
+</head>
+<body>
+
+<div class="c">
+  <h3>Product</h3>
+
+  <button class="bag" onclick="bag++;update()">Add to Bag</button>
+  <button class="wish" onclick="wish++;update()">Move to Wishlist</button>
+
+  <div class="q">
+    <button onclick="if(bag>0)bag--;update()">-</button>
+    <b id="b">0</b>
+    <button onclick="bag++;update()">+</button>
+  </div>
+
+  <p>Wishlist Items: <b id="w">0</b></p>
+</div>
+
+<script>
+  let bag=0,wish=0;
+  function update(){ b.innerText=bag; w.innerText=wish; }
+  update();
+</script>
+
+</body>
+</html>
